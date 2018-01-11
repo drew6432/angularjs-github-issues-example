@@ -1,0 +1,49 @@
+import { combineReducers } from 'redux';
+import { get } from 'lodash';
+import {
+    ISSUES_LOAD,
+    ISSUES_LOAD_SUCCESS,
+    ISSUES_LOAD_FAILURE
+} from '../actions/types/issue-action-types';
+
+const byId = (state = {}, {type, response}) => {
+    switch (type) {
+        case ISSUES_LOAD_SUCCESS:
+            return get(response, 'entities.issues', {});
+        case ISSUES_LOAD:
+        case ISSUES_LOAD_FAILURE:
+            return {};
+        default:
+            return state;
+    }
+};
+
+const allIds = (state = [], {type, response}) => {
+    switch (type) {
+        case ISSUES_LOAD_SUCCESS:
+            return get(response, 'result', []);
+        case ISSUES_LOAD:
+        case ISSUES_LOAD_FAILURE:
+            return [];
+        default:
+            return state;
+    }
+};
+
+const isLoading = (state = true, { type }) => {
+    switch (type) {
+        case ISSUES_LOAD:
+            return true;
+        case ISSUES_LOAD_SUCCESS:
+        case ISSUES_LOAD_FAILURE:
+            return false;
+        default:
+            return state;
+    }
+};
+
+export default combineReducers({
+    byId,
+    allIds,
+    isLoading
+});
