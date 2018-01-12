@@ -26,16 +26,22 @@ export default class GithubService {
         });
     }
 
-    getAngularIssues(daysSince) {
+    constructUrl(daysSince) {
         let requestUrl = '/repos/angular/angular/issues';
 
         if (daysSince) {
             requestUrl += `?since=${moment().subtract(daysSince, 'd').toISOString()}`;
         }
-        return this.client.get(requestUrl)
+
+        return requestUrl;
+    }
+
+    getAngularIssues(daysSince, page) {
+        const url = this.constructUrl(daysSince, page);
+        return this.client.get(url)
             .then( response => {
                 const noramlizedResponse = normalize(get(response, 'data', []), issuesSchema);
-                return { ...noramlizedResponse, pagination: parseLinkHeader(response.headers.link)}
+                return { ...noramlizedResponse, pagination: parseLinkHeader(response.headers.link, page, url)}
             })
     }
 }

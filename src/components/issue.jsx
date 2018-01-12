@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Glyphicon } from 'react-bootstrap';
+import { Row, Col, Glyphicon, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import UserProfilePic from './user-profile-pic';
 import marked from 'marked';
 import '../styles/Issue.css';
@@ -29,6 +29,8 @@ class Issue extends Component {
     render() {
         const { expanded } = this.state;
         const { issue, index } = this.props;
+
+        
         return (
             <li className="box-row animated fadeIn" style={{ animationDelay: `${(index + 1) * 0.03}s` }}>
                 <Row>

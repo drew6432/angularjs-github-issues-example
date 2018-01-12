@@ -5,10 +5,8 @@ body {
 .box-row {
     list-style-type: none;
     border-top: 1px solid #e1e4e8;
-    /* background-color: #f6f8fa; */
-    /* height: 50px; */
     padding: 5px;
-    -webkit-transition: height 2s; /* Safari */
+    -webkit-transition: height 2s;
     transition: height 2s;
   }
 
@@ -17,7 +15,7 @@ body {
   }
 
   .box-row:hover {
-    /* background-color: #f6f8fa; */
+    background-color: #f6f8fa;
   }
 
   .link-gray-dark {
@@ -37,12 +35,11 @@ span.glyphicon:hover {
 span.glyphicon {
     font-size: 2em;
     color: silver;
-    padding-top: 5px
-
+    padding-top: 5px;
+    cursor: pointer;
 }
 
 .issue-body {
-    /* background-color: #f5f5f5; */
     border: 1px solid #e3e3e3;
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
@@ -51,10 +48,10 @@ span.glyphicon {
 }
 
 .profile-pic {
-    border: 1px solid #ddd; /* Gray border */
-    border-radius: 4px;  /* Rounded border */
-    padding: 2px; /* Some padding */
-    width: 40px; /* Set a small width */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 40px;
 }
 
 .profile-pic:hover {
@@ -66,6 +63,7 @@ span.glyphicon {
     border: 1px solid #e1e4e8;
     border-radius: 3px 3px 0 0;
     height: 50px;
+    margin-top: 10px;
 }
 
 .header .text {

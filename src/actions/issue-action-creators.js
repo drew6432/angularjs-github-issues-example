@@ -14,10 +14,11 @@ const loadIssuesFailure = error => ({ type: ISSUES_LOAD_FAILURE, error });
 
 export const loadIssues = () => {
     return (dispatch, getState, config) => {
-        // const state = getState();
+        const state = getState();
+
         dispatch(loadingIssues());
         const githubServiceInstance = new GithubService(config);
-        return githubServiceInstance.getAngularIssues(7)
+        return githubServiceInstance.getAngularIssues(7, state.uiState.pagination.clickedPageNum)
         .then(
             response => {
                 return dispatch(loadIssuesSuccess(response));
