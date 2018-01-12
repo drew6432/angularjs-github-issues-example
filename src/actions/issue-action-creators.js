@@ -17,7 +17,7 @@ export const loadIssues = () => {
         // const state = getState();
         dispatch(loadingIssues());
         const githubServiceInstance = new GithubService(config);
-        return githubServiceInstance.getAngularIssues()
+        return githubServiceInstance.getAngularIssues(7)
         .then(
             response => {
                 return dispatch(loadIssuesSuccess(response));

@@ -1,0 +1,9 @@
+.box-row {
+    list-style-type: none;
+    border-top: 1px solid #e1e4e8;
+    height: 50px;
+  }
+
+  .link-gray-dark {
+    color: #24292e !important;
+}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { get } from 'lodash';
 import { normalize, schema } from 'normalizr';
+import moment from 'moment';
 
 const label = new schema.Entity('labels');
 const user = new schema.Entity('users');
@@ -24,8 +25,13 @@ export default class GithubService {
         });
     }
 
-    getAngularIssues() {
-        return this.client.get('/repos/angular/angular/issues')
+    getAngularIssues(daysSince) {
+        let requestUrl = '/repos/angular/angular/issues';
+
+        if (daysSince) {
+            requestUrl += `?since=${moment().subtract(daysSince, 'd').toISOString()}`;
+        }
+        return this.client.get(requestUrl)
             .then( response => {
                 return normalize(get(response, 'data', []), issuesSchema);
             })

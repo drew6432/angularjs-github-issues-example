@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ListGroup, ListGroupItem, Well } from 'react-bootstrap';
+import { Grid, Col, Row } from 'react-bootstrap';
 import { loadIssues } from '../actions/issue-action-creators';
-import { issuesSelector } from '../selectors/issue-selectors';
+import { issuesSelector, isFetchingIssues } from '../selectors/issue-selectors';
+import IssuesList from '../components/issues-list';
 
 export class IssuesContainer extends Component {
 
@@ -13,10 +14,11 @@ export class IssuesContainer extends Component {
 
     render() {
         return (
-            <div>
-            issues container
-            {this.props.issues.map(issue => <div key={issue.id}>{issue.title}</div>)}
-            </div>
+            <Grid>
+            {this.props.isFetchingIssues
+                ? <h2>Loading...</h2>
+                : <IssuesList issues={this.props.issues} />}
+            </Grid>
         );
     }
 };
@@ -26,7 +28,8 @@ IssuesContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    issues: issuesSelector(state)
+    issues: issuesSelector(state),
+    isFetchingIssues: isFetchingIssues(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
