@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import { get } from 'lodash';
 import moment from 'moment';
+import { getUserMap } from './user-selector';
 
 const getIssueMap = state => get(state, 'issues.byId', {});
 const getIssueIds = state => get(state, 'issues.allIds', []);
@@ -14,5 +15,14 @@ function timeDifference(issue) {
 export const issuesSelector = createSelector(
     getIssueIds,
     getIssueMap,
-    (issueIds, issueMap) => issueIds.map(id => ({ ...issueMap[id], timeSince: timeDifference(issueMap[id])}))
+    getUserMap,
+    (issueIds, issueMap, userMap) => issueIds.map(id => {
+        const issue = issueMap[id];
+        return {
+            ...issue,
+            timeSince: timeDifference(issue),
+            user: userMap[issue.user],
+            assignee: userMap[issue.assignee]
+        }
+    }).filter(issue => !issue.pull_request)
 );

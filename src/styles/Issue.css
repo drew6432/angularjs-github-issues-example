@@ -1,9 +1,51 @@
+body {
+    background-color: #FFFFFF;
+}
+
 .box-row {
     list-style-type: none;
     border-top: 1px solid #e1e4e8;
-    height: 50px;
+    /* background-color: #f6f8fa; */
+    /* height: 50px; */
+    padding: 5px;
+  }
+
+  .box-row:hover {
+    /* background-color: #f6f8fa; */
   }
 
   .link-gray-dark {
     color: #24292e !important;
+}
+
+.issue-body {
+    /* background-color: #f5f5f5; */
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    padding: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.profile-pic {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 2px; /* Some padding */
+    width: 40px; /* Set a small width */
+}
+
+.profile-pic:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.header {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 3px 3px 0 0;
+    height: 50px;
+}
+
+.header .text {
+    color: #586069;
+    padding: 15px;
 }

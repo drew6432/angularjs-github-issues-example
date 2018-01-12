@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroup } from 'react-bootstrap';
 import Issue from './issue';
+import IssueTableHeader from './issue-table-header';
+import '../styles/Issue.css';
 
 const IssuesList = ({ issues }) => {
 
@@ -9,6 +11,7 @@ const IssuesList = ({ issues }) => {
 
     return (
         <ListGroup componentClass="ul">
+            <IssueTableHeader />
             {issues.map(renderListItem)}
         </ListGroup>
     );

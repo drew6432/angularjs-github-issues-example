@@ -1,24 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Glyphicon } from 'react-bootstrap';
+import UserProfilePic from './user-profile-pic';
+import marked from 'marked';
 import '../styles/Issue.css';
 
-const Issue = ({ issue }) => {
+
+class Issue extends Component {
 
     // const renderListItem = issue => <Issue issue={issue} />
+    constructor(props) {
+        super(props);
+        this.state = {
+            expanded: false
+        }
+    }
 
-    return (
-        <li className="box-row">
-            <Row>
-                <Col xs={1}>something</Col>
-                <Col xs={9}><span className="h4 link-gray-dark">{issue.title}</span></Col>
-                <Col xs={2}>something</Col>
-            </Row>
-            <Row>
-                <Col xs={10} xsOffset={2}><span>#{issue.number} open {issue.timeSince}</span></Col>
-            </Row>
-        </li>
-    );
+    toggleCollapse = () => {
+        this.setState((prevState) => ({
+            expanded: !prevState.expanded
+          }));
+    }
+
+    createMarkup = () => {
+        return {__html: marked(this.props.issue.body)};
+      }
+
+    render() {
+        const { expanded } = this.state;
+        const { issue } = this.props;
+        return (
+            <li className="box-row">
+                <Row>
+                    <Col xs={1}>
+                        <Glyphicon
+                            style={{fontSize: '2em', color: 'silver', paddingTop: '5px'}}
+                            glyph={expanded ? 'menu-down' : 'menu-right'}
+                            onClick={this.toggleCollapse}
+                            />
+                    </Col>
+                    <Col xs={9}>
+                        {/*<span className="h4 link-gray-dark">{issue.title}</span>*/}
+                        <Row>
+                            <Col xs={12}><span className="h4 link-gray-dark">{issue.title}</span></Col>
+
+                        </Row>
+                        <Row>
+                            <Col xs={11}>
+                            <span className="small">#{issue.number} opened by <a href={issue.user.html_url}>{issue.user.login}</a></span>
+                            </Col>
+                         </Row>
+                    </Col>
+                    <Col xs={2}>
+                        {issue.assignee && <UserProfilePic user={issue.assignee} />}
+                    </Col>
+                </Row>
+                {expanded && <Row>
+                    <Col xs={12}>
+                        <div className="issue-body">
+                            <div dangerouslySetInnerHTML={this.createMarkup()} />
+                        </div>
+                    </Col>
+                </Row>}
+            </li>
+        );
+    }
 };
 
 Issue.propTypes = {
