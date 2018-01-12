@@ -7,7 +7,7 @@ import '../styles/Issue.css';
 
 const IssuesList = ({ issues }) => {
 
-    const renderListItem = issue => <Issue issue={issue} key={issue.id} />
+    const renderListItem = (issue, index) => <Issue issue={issue} key={issue.id} index={index}/>
 
     return (
         <ListGroup componentClass="ul">

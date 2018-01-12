@@ -28,16 +28,16 @@ class Issue extends Component {
 
     render() {
         const { expanded } = this.state;
-        const { issue } = this.props;
+        const { issue, index } = this.props;
         return (
-            <li className="box-row">
+            <li className="box-row animated fadeIn" style={{ animationDelay: `${(index + 1) * 0.03}s` }}>
                 <Row>
                     <Col xs={1}>
-                        <Glyphicon
-                            style={{fontSize: '2em', color: 'silver', paddingTop: '5px'}}
-                            glyph={expanded ? 'menu-down' : 'menu-right'}
-                            onClick={this.toggleCollapse}
-                            />
+                        <a onClick={this.toggleCollapse} className="collapse-toggle">
+                            <Glyphicon
+                                glyph={expanded ? 'menu-down' : 'menu-right'}
+                                />
+                        </a>
                     </Col>
                     <Col xs={9}>
                         {/*<span className="h4 link-gray-dark">{issue.title}</span>*/}
@@ -55,9 +55,9 @@ class Issue extends Component {
                         {issue.assignee && <UserProfilePic user={issue.assignee} />}
                     </Col>
                 </Row>
-                {expanded && <Row>
+                {expanded && <Row className="animated easeIn">
                     <Col xs={12}>
-                        <div className="issue-body">
+                        <div className={`issue-body ${expanded && 'expanded'}`}>
                             <div dangerouslySetInnerHTML={this.createMarkup()} />
                         </div>
                     </Col>

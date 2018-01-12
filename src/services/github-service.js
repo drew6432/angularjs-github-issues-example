@@ -2,6 +2,7 @@ import axios from 'axios';
 import { get } from 'lodash';
 import { normalize, schema } from 'normalizr';
 import moment from 'moment';
+import { parseLinkHeader } from './utils';
 
 const label = new schema.Entity('labels');
 const user = new schema.Entity('users');
@@ -33,7 +34,8 @@ export default class GithubService {
         }
         return this.client.get(requestUrl)
             .then( response => {
-                return normalize(get(response, 'data', []), issuesSchema);
+                const noramlizedResponse = normalize(get(response, 'data', []), issuesSchema);
+                return { ...noramlizedResponse, pagination: parseLinkHeader(response.headers.link)}
             })
     }
 }

@@ -8,6 +8,12 @@ body {
     /* background-color: #f6f8fa; */
     /* height: 50px; */
     padding: 5px;
+    -webkit-transition: height 2s; /* Safari */
+    transition: height 2s;
+  }
+
+  .expanded {
+    transition: 2s ease;
   }
 
   .box-row:hover {
@@ -16,6 +22,23 @@ body {
 
   .link-gray-dark {
     color: #24292e !important;
+}
+
+.link-gray-dark:hover {
+    color: #0366d6 !important;
+    cursor: pointer;
+}
+
+span.glyphicon:hover {
+    color: black;
+    text-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+}
+span.glyphicon {
+    font-size: 2em;
+    color: silver;
+    padding-top: 5px
+
 }
 
 .issue-body {
@@ -48,4 +71,26 @@ body {
 .header .text {
     color: #586069;
     padding: 15px;
+}
+
+.animated {
+    animation-duration: 0.75s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.easeIn {
+    animation-name: easeIn;
 }
