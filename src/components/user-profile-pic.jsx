@@ -22,10 +22,7 @@ const UserProfilePic = ({ user }) => {
 };
 
 UserProfilePic.propTypes = {
-    // children: PropTypes.oneOfType([
-    //     PropTypes.arrayOf(PropTypes.node),
-    //     PropTypes.node
-    // ])
+    user: PropTypes.object
 };
 
 export default UserProfilePic;

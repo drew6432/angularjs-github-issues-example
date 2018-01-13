@@ -8,7 +8,6 @@ import '../styles/Issue.css';
 
 class Issue extends Component {
 
-    // const renderListItem = issue => <Issue issue={issue} />
     constructor(props) {
         super(props);
         this.state = {
@@ -42,9 +41,8 @@ class Issue extends Component {
                         </a>
                     </Col>
                     <Col xs={9}>
-                        {/*<span className="h4 link-gray-dark">{issue.title}</span>*/}
                         <Row>
-                            <Col xs={12}><span className="h4 link-gray-dark">{issue.title}</span></Col>
+                            <Col xs={12}><span className="h4 link-gray-dark" onClick={this.toggleCollapse}>{issue.title}</span></Col>
 
                         </Row>
                         <Row>
@@ -70,10 +68,8 @@ class Issue extends Component {
 };
 
 Issue.propTypes = {
-    // children: PropTypes.oneOfType([
-    //     PropTypes.arrayOf(PropTypes.node),
-    //     PropTypes.node
-    // ])
+    issue: PropTypes.object,
+    index: PropTypes.number
 };
 
 export default Issue;

@@ -22,10 +22,7 @@ const IssuesList = ({ issues }) => {
 };
 
 IssuesList.propTypes = {
-    // children: PropTypes.oneOfType([
-    //     PropTypes.arrayOf(PropTypes.node),
-    //     PropTypes.node
-    // ])
+    issues: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default IssuesList;

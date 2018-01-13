@@ -11,13 +11,11 @@ import {
 import config from '../config/config.json';
 
 const initialState = {
-    // pagination: {
         current: {
             url: `${config.GITHUB_URL}/repos/angular/angular/issues`,
             pageNum: 1
         },
         clickedPageNum: 1
-    // }
 }
 
 const pagination = (state = initialState, {type, response, pageNum}) => {
@@ -39,8 +37,6 @@ const errorState = (state = null, {type, error}) => {
             return state;
     }
 };
-
-// export default pagination;
 
 
 export default combineReducers({

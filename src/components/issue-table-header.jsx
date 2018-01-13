@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import '../styles/Issue.css';
 
-const IssueTableHeader = ({ issue }) => {
-
-    // const renderListItem = issue => <Issue issue={issue} />
+const IssueTableHeader = () => {
 
     return (
         <li className="box-row header">
@@ -19,13 +17,6 @@ const IssueTableHeader = ({ issue }) => {
             </Row>
         </li>
     );
-};
-
-IssueTableHeader.propTypes = {
-    // children: PropTypes.oneOfType([
-    //     PropTypes.arrayOf(PropTypes.node),
-    //     PropTypes.node
-    // ])
 };
 
 export default IssueTableHeader;
