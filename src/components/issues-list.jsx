@@ -4,16 +4,20 @@ import { ListGroup } from 'react-bootstrap';
 import Issue from './issue';
 import IssueTableHeader from './issue-table-header';
 import '../styles/Issue.css';
+import PaginationContainer from '../containers/pagination-container'; 
 
 const IssuesList = ({ issues }) => {
 
     const renderListItem = (issue, index) => <Issue issue={issue} key={issue.id} index={index}/>
 
     return (
-        <ListGroup componentClass="ul">
-            <IssueTableHeader />
-            {issues.map(renderListItem)}
-        </ListGroup>
+        <div>
+            <ListGroup componentClass="ul">
+                <IssueTableHeader />
+                {issues.map(renderListItem)}
+            </ListGroup>
+            <PaginationContainer />
+        </div>
     );
 };
 

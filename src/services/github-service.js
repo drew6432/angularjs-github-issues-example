@@ -26,11 +26,11 @@ export default class GithubService {
         });
     }
 
-    constructUrl(daysSince) {
+    constructUrl(daysSince, page) {
         let requestUrl = '/repos/angular/angular/issues';
 
         if (daysSince) {
-            requestUrl += `?since=${moment().subtract(daysSince, 'd').toISOString()}`;
+            requestUrl += `?since=${moment().subtract(daysSince, 'd').toISOString()}&page=${page}`;
         }
 
         return requestUrl;

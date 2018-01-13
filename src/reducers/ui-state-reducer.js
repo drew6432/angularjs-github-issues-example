@@ -11,19 +11,19 @@ import {
 import config from '../config/config.json';
 
 const initialState = {
-    pagination: {
+    // pagination: {
         current: {
-            url: config.GITHUB_URL,
+            url: `${config.GITHUB_URL}/repos/angular/angular/issues`,
             pageNum: 1
         },
         clickedPageNum: 1
-    }
+    // }
 }
 
 const pagination = (state = initialState, {type, response, pageNum}) => {
     switch (type) {
         case ISSUES_LOAD_SUCCESS:
-            return get(response, 'pagination', {});
+            return { ...get(response, 'pagination', {}) };
         case PAGINATION_CLICK:
             return { ...state, clickedPageNum: pageNum };
         default:
@@ -31,7 +31,19 @@ const pagination = (state = initialState, {type, response, pageNum}) => {
     }
 };
 
+const errorState = (state = null, {type, error}) => {
+    switch (type) {
+        case ISSUES_LOAD_FAILURE:
+            return error;
+        default:
+            return state;
+    }
+};
+
+// export default pagination;
+
 
 export default combineReducers({
-    pagination
+    pagination,
+    errorState
 });

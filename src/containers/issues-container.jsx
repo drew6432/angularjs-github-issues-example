@@ -6,6 +6,7 @@ import { loadIssues } from '../actions/issue-action-creators';
 import { issuesSelector, isFetchingIssues } from '../selectors/issue-selectors';
 import IssuesList from '../components/issues-list';
 
+
 export class IssuesContainer extends Component {
 
     componentDidMount() {
@@ -17,7 +18,9 @@ export class IssuesContainer extends Component {
             <Grid>
             {this.props.isFetchingIssues
                 ? <h2>Loading...</h2>
-                : <IssuesList issues={this.props.issues} />}
+                : (this.props.errorState
+                    ? <h4>{this.props.errorState.message}</h4>
+                    : <IssuesList issues={this.props.issues} />)}
             </Grid>
         );
     }
@@ -29,7 +32,8 @@ IssuesContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
     issues: issuesSelector(state),
-    isFetchingIssues: isFetchingIssues(state)
+    isFetchingIssues: isFetchingIssues(state),
+    errorState: state.uiState.error
 });
 
 const mapDispatchToProps = (dispatch) => ({
