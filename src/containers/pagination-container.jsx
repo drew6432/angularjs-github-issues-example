@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Col, Row } from 'react-bootstrap';
 import { getPagination } from '../selectors/pagination-selector';
 import Pagination from '../components/pagination';
 import { handlePaginationClick } from '../actions/pagination-action-creators';
@@ -35,7 +34,7 @@ export class PaginationContainer extends Component {
             }
         }
 
-        const pages = range(startPage, parseInt(endPage) + 1);
+        const pages = range(startPage, endPage + 1);
 
         return {
             currentPage: currentPage,

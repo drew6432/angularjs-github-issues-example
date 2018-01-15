@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Row, Col, Glyphicon, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Row, Col, Glyphicon } from 'react-bootstrap';
 import UserProfilePic from './user-profile-pic';
 import marked from 'marked';
 import '../styles/Issue.css';

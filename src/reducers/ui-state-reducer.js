@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux';
 import { get } from 'lodash';
 import {
-    ISSUES_LOAD,
     ISSUES_LOAD_SUCCESS,
     ISSUES_LOAD_FAILURE
 } from '../actions/types/issue-action-types';

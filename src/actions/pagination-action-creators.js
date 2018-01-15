@@ -1,4 +1,3 @@
-import GithubService from '../services/github-service';
 import {
     PAGINATION_CLICK
 } from './types/pagination-action-types';

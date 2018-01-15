@@ -14,7 +14,7 @@ const UserProfilePic = ({ user }) => {
     return (
         <a href={user.html_url}>
             <OverlayTrigger placement="top" overlay={tooltip}>
-                <img src={user.avatar_url} className="profile-pic"/>
+                <img src={user.avatar_url} alt="assignee profile" className="profile-pic"/>
             </OverlayTrigger >
         </a>
         

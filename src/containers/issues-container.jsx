@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Col, Row } from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
 import { loadIssues } from '../actions/issue-action-creators';
 import { issuesSelector, isFetchingIssues } from '../selectors/issue-selectors';
 import IssuesList from '../components/issues-list';
