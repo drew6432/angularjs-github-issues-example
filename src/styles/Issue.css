@@ -1,0 +1,94 @@
+body {
+    background-color: #FFFFFF;
+}
+
+.box-row {
+    list-style-type: none;
+    border-top: 1px solid #e1e4e8;
+    padding: 5px;
+    -webkit-transition: height 2s;
+    transition: height 2s;
+  }
+
+  .expanded {
+    transition: 2s ease;
+  }
+
+  .box-row:hover {
+    background-color: #f6f8fa;
+  }
+
+  .link-gray-dark {
+    color: #24292e !important;
+}
+
+.link-gray-dark:hover {
+    color: #0366d6 !important;
+    cursor: pointer;
+}
+
+span.glyphicon:hover {
+    color: black;
+    text-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+
+}
+span.glyphicon {
+    font-size: 2em;
+    color: silver;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.issue-body {
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    padding: 10px;
+    margin: 10px 0 10px 0;
+}
+
+.profile-pic {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 2px;
+    width: 40px;
+}
+
+.profile-pic:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.header {
+    background-color: #f6f8fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 3px 3px 0 0;
+    height: 50px;
+    margin-top: 10px;
+}
+
+.header .text {
+    color: #586069;
+    padding: 15px;
+}
+
+.animated {
+    animation-duration: 0.75s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.easeIn {
+    animation-name: easeIn;
+}
