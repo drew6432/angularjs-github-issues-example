@@ -17,7 +17,7 @@ class Pagination extends Component {
         return (
             <div>
                 <Row className="animated easeIn">
-                    <Col xs={12}>
+                    <Col xs={6} xsOffset={3}>
                         <div>
                         <ul className="pagination">
                             <PaginationItem isDisabled={currentPage === 1} display={'First'} pageNum={1} setPage={setPage}/>
