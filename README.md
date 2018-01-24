@@ -1,4 +1,4 @@
-Levels Beyond Front-end assessment
+# AngularJS issues front-end example
 
 Note: You’ll need to have Node >= 6 to run the code
 
